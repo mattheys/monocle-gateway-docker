@@ -28,7 +28,7 @@ WORKDIR /root
 # Monocle Gateway image arguments.
 # ---------------------------------------
 ARG BUILD_VERSION=v0.0.4
-
+ARG BUILD_ARCH=arm64
 # ---------------------------------------
 # Monocle Gateway image labels.
 # ---------------------------------------
@@ -71,7 +71,7 @@ RUN apk update &&      \
 # Remove the downloaded Monocle Gateway 
 # archive files
 # ---------------------------------------
-RUN wget -c https://files.monoclecam.com/monocle-gateway/linux/monocle-gateway-alpine-x64-$BUILD_VERSION.tar.gz -O monocle-gateway.tar.gz && \
+RUN wget -c https://files.monoclecam.com/monocle-gateway/linux/monocle-gateway-linux-$BUILD_ARCH-$BUILD_VERSION.tar.gz -O monocle-gateway.tar.gz && \
     cd /usr/local/bin/ && \
     tar xvzf /root/monocle-gateway.tar.gz monocle-gateway && \ 
     tar xvzf /root/monocle-gateway.tar.gz monocle-proxy  && \
